@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "category": "Coding",
+    "title": "Code Review Assistant",
+    "prompt": "Act as a senior software engineer. Review the following code for performance, security vulnerabilities, and adherence to best practices. Suggest specific improvements and provide refactored code snippets: [INSERT CODE]"
+  },
+  {
+    "id": 2,
+    "category": "Writing",
+    "title": "Tone Rewriter",
+    "prompt": "Rewrite the following text to be more professional, concise, and persuasive while maintaining the original core message. Target audience is C-level executives: [INSERT TEXT]"
+  },
+  {
+    "id": 3,
+    "category": "Learning",
+    "title": "Feynman Technique Concept",
+    "prompt": "Explain [INSERT CONCEPT] using the Feynman technique. Break it down into simple terms as if you were teaching it to a 12-year-old. Use an analogy to make it easy to grasp."
+  },
+  {
+    "id": 4,
+    "category": "Productivity",
+    "title": "Weekly Meal Planner",
+    "prompt": "Create a 7-day high-protein dinner meal plan. Include a strict grocery shopping list categorized by supermarket aisles, and keep all recipes under 30 minutes of prep time."
+  },
+  {
+    "id": 5,
+    "category": "Business",
+    "title": "Marketing Hook Generator",
+    "prompt": "Generate 5 compelling, scroll-stopping hooks for a short-form video (TikTok/Reels) promoting [INSERT PRODUCT/SERVICE]. Use psychological triggers like curiosity, fear of missing out, or common pain points."
+  },
+  {
+    "id": 6,
+    "category": "Coding",
+    "title": "Regex Generator",
+    "prompt": "Write a regular expression in JavaScript that matches [INSERT REQUIREMENTS]. Explain how each part of the regex works step-by-step, and provide 3 testing examples (2 valid, 1 invalid)."
+  }
+]
