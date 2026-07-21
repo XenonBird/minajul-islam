@@ -1,0 +1,245 @@
+Here is the `prompts.json` file and the `index.html` file. The HTML uses the exact design system, Tailwind classes, and custom CSS you provided, powered by vanilla JavaScript to fetch and render the JSON data.
+
+### `prompts.json`
+
+```json
+[
+  {
+    "id": 1,
+    "category": "Coding",
+    "title": "Code Review Assistant",
+    "prompt": "Act as a senior software engineer. Review the following code for performance, security vulnerabilities, and adherence to best practices. Suggest specific improvements and provide refactored code snippets: [INSERT CODE]"
+  },
+  {
+    "id": 2,
+    "category": "Writing",
+    "title": "Tone Rewriter",
+    "prompt": "Rewrite the following text to be more professional, concise, and persuasive while maintaining the original core message. Target audience is C-level executives: [INSERT TEXT]"
+  },
+  {
+    "id": 3,
+    "category": "Learning",
+    "title": "Feynman Technique Concept",
+    "prompt": "Explain [INSERT CONCEPT] using the Feynman technique. Break it down into simple terms as if you were teaching it to a 12-year-old. Use an analogy to make it easy to grasp."
+  },
+  {
+    "id": 4,
+    "category": "Productivity",
+    "title": "Weekly Meal Planner",
+    "prompt": "Create a 7-day high-protein dinner meal plan. Include a strict grocery shopping list categorized by supermarket aisles, and keep all recipes under 30 minutes of prep time."
+  },
+  {
+    "id": 5,
+    "category": "Business",
+    "title": "Marketing Hook Generator",
+    "prompt": "Generate 5 compelling, scroll-stopping hooks for a short-form video (TikTok/Reels) promoting [INSERT PRODUCT/SERVICE]. Use psychological triggers like curiosity, fear of missing out, or common pain points."
+  },
+  {
+    "id": 6,
+    "category": "Coding",
+    "title": "Regex Generator",
+    "prompt": "Write a regular expression in JavaScript that matches [INSERT REQUIREMENTS]. Explain how each part of the regex works step-by-step, and provide 3 testing examples (2 valid, 1 invalid)."
+  }
+]
+
+```
+
+### `index.html`
+
+```html
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <title>Useful Prompts Library</title>
+    <meta name="description" content="A curated collection of highly effective AI prompts." />
+
+    <!-- PERFORMANCE & PRELOADS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://cdn.tailwindcss.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- FAVICON -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%232563eb'/><text y='.9em' font-size='70' x='15' fill='white' font-family='Arial Black'>P</text></svg>" />
+    <meta name="theme-color" content="#2563EB" />
+
+    <!-- STYLES (Retained exactly from your template) -->
+    <style>
+      :root {
+        --blue: #2563eb;
+        --blue-dark: #1d4ed8;
+        --blue-light: #dbeafe;
+        --slate-900: #0f172a;
+        --slate-600: #475569;
+        --slate-400: #94a3b8;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        background: #fff;
+        color: var(--slate-900);
+      }
+
+      h1, h2, h3, h4, h5, h6, .font-display {
+        font-family: "Inter", sans-serif;
+      }
+
+      .bento-card {
+        transition: transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.35s ease;
+      }
+      .bento-card:hover {
+        transform: translateY(-4px) scale(1.01);
+        box-shadow: 0 24px 60px -12px rgba(37, 99, 235, 0.12);
+      }
+
+      @keyframes fadeUp {
+        from { opacity: 0; transform: translateY(24px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      .anim-1 { animation: fadeUp 0.6s ease both 0.1s; }
+      .anim-2 { animation: fadeUp 0.6s ease both 0.25s; }
+      .anim-3 { animation: fadeUp 0.6s ease both 0.4s; }
+
+      html { scroll-behavior: smooth; }
+      ::selection { background: #dbeafe; color: #1e3a8a; }
+      
+      a:focus-visible, button:focus-visible {
+        outline: 3px solid #2563eb; outline-offset: 3px; border-radius: 4px;
+      }
+
+      .glow-tag { box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.08); }
+
+      .nav-link { position: relative; }
+      .nav-link::after {
+        content: ""; position: absolute; bottom: -2px; left: 0; right: 0;
+        height: 2px; background: #2563eb; border-radius: 2px;
+        transform: scaleX(0); transition: transform 0.2s ease;
+      }
+      .nav-link:hover::after { transform: scaleX(1); }
+
+      .dot-pattern {
+        background-image: radial-gradient(circle, #e2e8f0 1.5px, transparent 1.5px);
+        background-size: 24px 24px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- NAVIGATION -->
+    <header role="banner">
+      <nav class="fixed top-0 w-full z-50 bg-white/85 backdrop-blur-md border-b border-slate-100">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+          <a href="/" class="flex items-center gap-2.5">
+            <div class="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center shadow-lg shadow-blue-200">
+              <i data-lucide="terminal" class="text-white w-5 h-5"></i>
+            </div>
+            <span class="text-2xl font-black tracking-tighter text-slate-900">PROMPTS.</span>
+          </a>
+          <div class="hidden md:flex items-center gap-8 text-sm font-bold text-slate-500">
+            <a href="#library" class="nav-link hover:text-blue-600 transition-colors">Library</a>
+            <a href="#" class="bg-slate-900 text-white px-6 py-2.5 rounded-full hover:bg-blue-600 transition-all font-bold text-sm shadow-sm">Submit Prompt</a>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main-content" role="main">
+      <!-- HERO SECTION -->
+      <section class="relative pt-40 pb-20 px-6 overflow-hidden dot-pattern">
+        <div class="absolute top-20 right-0 w-96 h-96 bg-blue-100/60 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute bottom-0 left-0 w-64 h-64 bg-indigo-50/80 rounded-full blur-2xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto relative z-10 text-center">
+          <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-50 text-blue-600 text-xs font-black uppercase tracking-widest mb-8 border border-blue-100 glow-tag anim-1">
+            <i data-lucide="sparkles" class="w-3.5 h-3.5"></i> Curated AI Resources
+          </div>
+
+          <h1 class="text-5xl md:text-7xl lg:text-8xl font-black leading-[1.06] text-slate-900 mb-8 tracking-tighter mx-auto max-w-4xl anim-2">
+            Supercharge your <span class="text-blue-600 inline-block relative">AI Workflow</span>
+          </h1>
+
+          <p class="text-xl text-slate-500 mb-10 leading-relaxed max-w-2xl mx-auto font-medium anim-3">
+            A hand-picked collection of high-quality prompts to get the best results from ChatGPT, Gemini, and Claude.
+          </p>
+        </div>
+      </section>
+
+      <!-- PROMPTS LIBRARY SECTION -->
+      <section id="library" class="py-24 px-6 bg-slate-50">
+        <div class="max-w-7xl mx-auto">
+          <header class="text-center mb-16">
+            <p class="text-xs font-black uppercase tracking-widest text-blue-600 mb-3">The Collection</p>
+            <h2 class="text-4xl md:text-5xl font-black text-slate-900 mb-4 tracking-tight">Useful Prompts</h2>
+          </header>
+
+          <!-- Javascript will inject bento-cards here -->
+          <div id="prompts-container" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+        </div>
+      </section>
+    </main>
+
+    <!-- LOGIC TO FETCH AND RENDER JSON -->
+    <script>
+      // Initialize icons for the static HTML
+      lucide.createIcons();
+
+      document.addEventListener("DOMContentLoaded", () => {
+        // Fetch prompts.json and render bento cards
+        fetch('prompts.json')
+          .then(response => response.json())
+          .then(data => {
+            const container = document.getElementById('prompts-container');
+            container.innerHTML = data.map(prompt => `
+              <article class="bento-card bg-white p-8 rounded-[2.5rem] border border-slate-200 shadow-sm flex flex-col justify-between">
+                <div>
+                  <div class="flex justify-between items-start mb-4">
+                     <span class="text-xs font-black text-blue-600 bg-blue-50 px-3 py-1 rounded-full uppercase border border-blue-100">
+                        ${prompt.category}
+                     </span>
+                  </div>
+                  <h3 class="text-2xl font-black mb-4 text-slate-900">${prompt.title}</h3>
+                  <div class="bg-slate-50 p-4 rounded-2xl border border-slate-100 mb-6">
+                    <p class="text-slate-600 font-medium text-sm leading-relaxed">${prompt.prompt}</p>
+                  </div>
+                </div>
+                <button 
+                  onclick="copyToClipboard(this)" 
+                  data-prompt="${prompt.prompt.replace(/"/g, '&quot;')}"
+                  class="bg-slate-900 text-white px-6 py-3.5 rounded-2xl hover:bg-blue-600 transition-all font-bold text-sm shadow-sm flex items-center justify-center gap-2 w-full"
+                >
+                  <i data-lucide="copy" class="w-4 h-4"></i> Copy Prompt
+                </button>
+              </article>
+            `).join('');
+            
+            // Re-initialize icons for the newly injected HTML
+            lucide.createIcons();
+          })
+          .catch(error => console.error('Error loading prompts:', error));
+      });
+
+      // Copy to clipboard functionality
+      function copyToClipboard(button) {
+        const text = button.getAttribute('data-prompt');
+        navigator.clipboard.writeText(text).then(() => {
+          const originalContent = button.innerHTML;
+          button.innerHTML = '<i data-lucide="check" class="w-4 h-4 text-green-400"></i> Copied!';
+          lucide.createIcons();
+          
+          setTimeout(() => {
+            button.innerHTML = originalContent;
+            lucide.createIcons();
+          }, 2000);
+        });
+      }
+    </script>
+  </body>
+</html>
+
+```
