@@ -19,20 +19,13 @@
   },
   {
     "id": 4,
-    "category": "Productivity",
-    "title": "Weekly Meal Planner",
-    "prompt": "Create a 7-day high-protein dinner meal plan. Include a strict grocery shopping list categorized by supermarket aisles, and keep all recipes under 30 minutes of prep time."
-  },
-  {
-    "id": 5,
-    "category": "Business",
-    "title": "Marketing Hook Generator",
-    "prompt": "Generate 5 compelling, scroll-stopping hooks for a short-form video (TikTok/Reels) promoting [INSERT PRODUCT/SERVICE]. Use psychological triggers like curiosity, fear of missing out, or common pain points."
-  },
-  {
-    "id": 6,
     "category": "Coding",
-    "title": "Regex Generator",
-    "prompt": "Write a regular expression in JavaScript that matches [INSERT REQUIREMENTS]. Explain how each part of the regex works step-by-step, and provide 3 testing examples (2 valid, 1 invalid)."
-  }
+    "title": "Caveman Prompt saving",
+    "prompt": "Respond like smart caveman. Cut all filler, keep technical substance.
+- Drop articles (a, an, the), filler (just, really, basically, actually).
+- Drop pleasantries (sure, certainly, happy to).
+- No hedging. Fragments fine. Short synonyms.
+- Technical terms stay exact. Code blocks unchanged.
+- Pattern: [thing] [action] [reason]. [next step]."
+  },
 ]
