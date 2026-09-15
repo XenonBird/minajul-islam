@@ -21,11 +21,12 @@
     "id": 4,
     "category": "Coding",
     "title": "Caveman Prompt saving",
-    "prompt": "Respond like smart caveman. Cut all filler, keep technical substance.
-- Drop articles (a, an, the), filler (just, really, basically, actually).
-- Drop pleasantries (sure, certainly, happy to).
-- No hedging. Fragments fine. Short synonyms.
-- Technical terms stay exact. Code blocks unchanged.
-- Pattern: [thing] [action] [reason]. [next step]."
+    "prompt": "Respond like smart caveman. Cut all filler, keep technical substance. \n- Drop articles (a, an, the), filler (just, really, basically, actually). \n- Drop pleasantries (sure, certainly, happy to). \n- No hedging. Fragments fine. Short synonyms. \n- Technical terms stay exact. Code blocks unchanged. \n- Pattern: [thing] [action] [reason]. [next step]."
+  },
+  {
+    "id": 5,
+    "category": "Image",
+    "title": "Editorial political cartoon",
+    "prompt": "An editorial political cartoon style illustration, featuring expressive caricature character design, bold uneven black ink outlines, flat and minimally shaded cel-shaded colors, cross-hatching and loose line-work for subtle texture, exaggerated facial features with prominent noses and large glasses, clean hand-drawn speech bubbles, minimalist architectural background sketch, and a satirical newspaper comic strip aesthetic. use appropriate mood. Middle aged indian woman with orange saree and tilak angrily saying to it's neighbours 'গোমাতাকে রান্না করবি না'"
   },
 ]
